@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عَرض</title>
+  <style>
+    body { background: #0a0806; color: #fff; font-family: sans-serif;
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; min-height: 100vh; margin: 0; text-align: center; padding: 24px; }
+    .logo { font-size: 48px; font-weight: 900; color: #c8702a; margin-bottom: 16px; }
+    .title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .sub { color: rgba(255,255,255,0.5); font-size: 14px; margin-bottom: 32px; }
+    .btn { background: #c8702a; color: #fff; padding: 16px 32px; border-radius: 24px;
+      font-size: 16px; font-weight: 700; text-decoration: none; display: inline-block; }
+    .small { color: rgba(255,255,255,0.3); font-size: 12px; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <div class="logo">عَرض</div>
+  <div class="title" id="msg">جاري فتح العرض...</div>
+  <div class="sub">سوق تلبيسة</div>
+  <a class="btn" id="openBtn" href="#">افتح في التطبيق</a>
+  <div class="small">لازم يكون التطبيق مثبّت</div>
+
+  <script>
+    const path = window.location.pathname; // /offer/ID
+    const deepLink = 'ard3:/' + path;
+    document.getElementById('openBtn').href = deepLink;
+
+    // فتح تلقائي
+    window.location.href = deepLink;
+
+    // لو ما فتح بعد ثانيتين
+    setTimeout(() => {
+      document.getElementById('msg').textContent = 'ما قدرنا نفتح التطبيق تلقائياً';
+    }, 2000);
+  </script>
+</body>
+</html>
